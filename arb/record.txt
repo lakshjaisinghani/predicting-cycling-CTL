@@ -1,0 +1,182 @@
+=====
+zwift 
+=====
+
+record
+------
+{
+    'timestamp': datetime.datetime(2018, 8, 10, 2, 31, 21), 
+    'position_lat': 563992530, 
+    'position_long': 135957907, 
+    'distance': None, 
+    'time_from_course': None, 
+    'speed': 1578, 
+    'compressed_speed_distance': None, 
+    'heart_rate': 0, 
+    'enhanced_altitude': 283.6, 
+    'altitude': 3918, 
+    'enhanced_speed': 1.578, 
+    'power': 63, 
+    'grade': None, 
+    'cadence': 61, 
+    'resistance': None, 
+    'cycle_length': None, 
+    'temperature': None
+}
+
+session
+--------
+{
+    'timestamp': datetime.datetime(2020, 7, 12, 7, 31, 1), 
+    'start_time': datetime.datetime(2020, 7, 12, 5, 28, 21), 
+    'start_position_lat': 0, 
+    'start_position_long': 0, 
+    'total_elapsed_time': 7344.0, 
+    'total_timer_time': 7345.585, 
+    'total_distance': 60162.3, 
+    'total_cycles': 0, 
+    'nec_lat': 0, 
+    'nec_long': 0, 
+    'swc_lat': 0, 
+    'swc_long': 0, 
+    'message_index': 0, 
+    'total_calories': 1117, 
+    'total_fat_calories': 0, 
+    'enhanced_avg_speed': 8.19, 
+    'avg_speed': 8190, 
+    'enhanced_max_speed': 13.704, 
+    'max_speed': 13704, 
+    'avg_power': 159, 
+    'max_power': 268, 
+    'total_ascent': 354, 
+    'total_descent': 0, 
+    'first_lap_index': 0, 
+    'num_laps': 1, 'event': 'session', 'event_type': 'stop', 'sport': 'cycling',
+    'sub_sport': 'virtual_activity', 'avg_heart_rate': 0, 'max_heart_rate': 0, 
+    'avg_cadence': 79, 'max_cadence': 97, 'total_training_effect': 0.0, 
+    'event_group': 0, 'trigger': 'activity_end'
+}
+
+
+======
+garmin
+======
+
+record
+------
+{
+    'timestamp': datetime.datetime(2020, 7, 10, 23, 35, 50),
+    'position_lat': -451716751, 
+    'position_long': 1734002521, 
+    'distance': 25559.23, 
+    'accumulated_power': 781950, 
+    'enhanced_altitude': 302.0, 
+    'altitude': 4010, 
+    'enhanced_speed': 13.063, 
+    'speed': 13063, 
+    'power': 53, 
+    'unknown_87': 0, 
+    'cadence': 86, 
+    'temperature': 10, 
+    'left_right_balance': None, 
+    'left_torque_effectiveness': 36.5, 
+    'right_torque_effectiveness': 0.0, 
+    'left_pedal_smoothness': 9.5, 
+    'right_pedal_smoothness': 0.0, 
+    'fractional_cadence': 0.0
+}
+
+activity
+--------
+{
+    'timestamp': datetime.datetime(2020, 7, 11, 1, 43, 3), 
+    'total_timer_time': 11187.705, 
+    'local_timestamp': datetime.datetime(2020, 7, 11, 11, 43, 3), 
+    'num_sessions': 1, 
+    'type': 'manual', 
+    'event': 'activity', 
+    'event_type': 'stop', 
+    'event_group': None, 
+    'unknown_7': None
+}
+
+session
+-------
+{
+    'timestamp': datetime.datetime(2020, 7, 11, 1, 43, 3), 
+    'start_time': datetime.datetime(2020, 7, 10, 22, 24, 40),
+     'start_position_lat': -452406696, 
+     'start_position_long': 1732162600, 
+     'total_elapsed_time': 11888.119, 
+     'total_timer_time': 11187.705, 
+     'total_distance': 78695.01, 
+     'total_cycles': 15205, 
+     'nec_lat': -451629628, 
+     'nec_long': 1734135099, 
+     'swc_lat': -452421889, 
+     'swc_long': 1732158629, 
+     'unknown_38': -451661375, 
+     'unknown_39': 1733696280, 
+     'avg_stroke_count': None, 
+     'total_work': 2058164, 
+     'unknown_78': None, 
+     'unknown_110': 'Bike', 
+     'time_standing': None, 
+     'avg_left_power_phase': (None, None, None, None), 
+     'avg_left_power_phase_peak': (None, None, None, None), 
+     'avg_right_power_phase': (None, None, None, None), 
+     'avg_right_power_phase_peak': (None, None, None, None), 
+     'avg_power_position': (None, None), 
+     'max_power_position': (None, None), 
+     'unknown_152': 0, 
+     'message_index': 0, 
+     'total_calories': 2056, 
+     'enhanced_avg_speed': 7.034,
+    'avg_speed': 7034, 
+    'enhanced_max_speed': 16.441, 
+    'max_speed': 16441, 
+    'avg_power': 184, 
+    'max_power': 1071, 
+    'total_ascent': 1335, 
+    'total_descent': 1470, 
+    'first_lap_index': 0, 
+    'num_laps': 5, 
+    'unknown_33': None, 
+    'normalized_power': 214, 
+    'training_stress_score': 171.5, 
+    'intensity_factor': 0.743, 
+    'left_right_balance': None, 
+    'avg_stroke_distance': None, 
+    'pool_length': None, 
+    'threshold_power': 288, 
+    'num_active_lengths': None, 
+    'unknown_79': None, 
+    'unknown_80': None, 
+    'avg_vertical_oscillation': None, 
+    'avg_stance_time_percent': None, 
+    'avg_stance_time': None, 
+    'unknown_106': 0, 
+    'unknown_107': None,
+    'unknown_108': None, 
+    'stand_count': None,
+    'avg_vertical_ratio': None, 
+    'avg_stance_time_balance': None, 
+    'avg_step_length': None, 
+    'unknown_151': 0, 
+    'unknown_157': None, 
+    'unknown_158': None, 
+    'event': 'lap', 
+    'event_type': 'stop', 
+    'sport': 'cycling',
+    'sub_sport': 'generic', 
+    'avg_heart_rate': None, 
+    'max_heart_rate': None, 
+    'avg_cadence': 87, 
+    'max_cadence': 126, 
+    'total_training_effect': None, 'event_group': None, 'trigger': 'activity_end', 'swim_stroke': None, 
+    'pool_length_unit': None, 'avg_temperature': 10, 'max_temperature': 16, 'unknown_81': 0, 'avg_fractional_cadence': 0.5859375, 
+    'max_fractional_cadence': 0.0, 'total_fractional_cycles': None, 'avg_left_torque_effectiveness': 67.5, 'avg_right_torque_effectiveness': None, 
+    'avg_left_pedal_smoothness': 20.0, 'avg_right_pedal_smoothness': None, 'avg_combined_pedal_smoothness': None, 'unknown_109': None, 
+    'avg_left_pco': None, 'avg_right_pco': None, 'avg_cadence_position': (None, None), 'max_cadence_position': (None, None), 
+    'total_anaerobic_training_effect': None, 'unknown_138': (None, None), 'unknown_150': 9, 'unknown_184': 0
+    }
