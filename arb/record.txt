@@ -2,6 +2,10 @@
 zwift 
 =====
 
+file_id
+-------
+{'serial_number': None, 'time_created': datetime.datetime(2019, 10, 14, 21, 40, 8), 'manufacturer': 'zwift', 'product': 0, 'number': 0, 'type': 'activity'}
+
 record
 ------
 {
@@ -61,6 +65,10 @@ session
 ======
 garmin
 ======
+
+file_id
+-------
+{'serial_number': 3951395028, 'time_created': datetime.datetime(2020, 7, 18, 22, 29, 8), 'unknown_7': None, 'manufacturer': 'garmin', 'garmin_product': 2833, 'number': None, 'type': 'activity'}
 
 record
 ------
@@ -180,3 +188,20 @@ session
     'avg_left_pco': None, 'avg_right_pco': None, 'avg_cadence_position': (None, None), 'max_cadence_position': (None, None), 
     'total_anaerobic_training_effect': None, 'unknown_138': (None, None), 'unknown_150': 9, 'unknown_184': 0
     }
+
+sport
+-----
+{
+    'name': 'Run',
+    'unknown_10': (None, 0, 0, None), 
+    'unknown_4': 29, 
+    'sport': 'running',  ('cycling')
+    'sub_sport': 'generic', 
+    'unknown_5': 1, 
+    'unknown_6': 0, 
+    'unknown_11': 1, 
+    'unknown_12': None, 
+    'unknown_13': 0
+}
+
+
