@@ -3,8 +3,8 @@ Using cycling training data to predict an athletes fitness over time using a dif
 
 ## TODO:
 - [ ] Clean data
-   - [ ] parse binary .fit data
-      - [ ] Check which format is better for data extraction (fit/tcx)
+   - [X] parse binary .fit data
+      - [X] Check which format is better for data extraction (fit/tcx)
    - [ ] Create data wrangling pipeline
    - [ ] Write to csv files
    
