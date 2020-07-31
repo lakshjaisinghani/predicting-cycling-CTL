@@ -4,6 +4,7 @@ import csv
 import fitparse
 import pandas as pd
 import os
+import time
 
 # Global file path
 GLOBAL_FILEPATH = os.path.dirname(os.path.dirname(__file__))
@@ -15,6 +16,7 @@ is_garmin = False
 is_cycling = True
 sport = ""
 data = {}
+data_lst = []
 
 def parse_record(values):
     data = {}
@@ -39,9 +41,10 @@ def parse_record(values):
 
 
 data_files = glob.glob("./data/[0-9]/*.fit.gz")
-# data_files = data_files[258:]
+data_files = data_files[316:]
 
 print("Cleaning Data has begun !!")
+start_time = time.time()
 
 for file in data_files:
 
@@ -59,6 +62,10 @@ for file in data_files:
             
             # convert from datetime object to str and then only keep yyyy-mm-dd
             FILENAME = str(message.get_values()['time_created'])[:10]
+
+            # open csv
+            csv_filename = f"data_{FILENAME}.csv"
+            csv_filepath = os.path.join(CSV_DIR, csv_filename)
             
             if manufacturer == "garmin":
                 is_garmin = True
@@ -75,19 +82,24 @@ for file in data_files:
         
         if message.name == "record" and is_cycling:
             data = parse_record(message.get_values())
-        
-            # appending value to activity dataframe
-            activity = activity.append(data, ignore_index=True)  
 
-    # manipulate data frame
-    activity = activity[["timestamp", "position_lat", "position_long", "altitude", "speed", "power", "cadence"]]
+            data_lst.append(data)
 
-    # create csv
-    csv_filename = f"data_{FILENAME}.csv"
-    csv_filepath = os.path.join(CSV_DIR, csv_filename)
 
-    with open(csv_filepath, mode='w') as csv_file:
-        filewriter = csv.writer(csv_file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    # add to csv using dictWriter
+    with open(csv_filepath, 'w+') as csvfile:
+        fieldnames = data.keys()
+        writer = csv.DictWriter(csvfile, extrasaction='ignore',fieldnames=fieldnames) # The bottleneck is the safety check that this function performs if self.extrasaction == "raise". 
+        writer.writeheader()
 
-    activity.to_csv(csv_filepath, index = False, header=True)
+        for x in data_lst:
+            try:
+                writer.writerow(x)
+            except:
+                break
+
+end_time = time.time()
+print("Completed data wrangling. \n")
+print("Time Taken: " + str(end_time-start_time))
+
  
