@@ -41,7 +41,6 @@ def parse_record(values):
 
 
 data_files = glob.glob("./data/[0-9]/*.fit.gz")
-data_files = data_files[316:]
 
 print("Cleaning Data has begun !!")
 start_time = time.time()
