@@ -30,7 +30,7 @@ As the goal of the project is to learn, each path of the workflow (Data Engineer
 
 # Notes
 
-## 1. If there are auth fails
+## 1. If there are mySQL auth fails
 
 ```shell
 $ sudo mysql -u root -p
@@ -43,4 +43,5 @@ Once this is done stop and start the mysql server.
 $  sudo service mysql stop
 $  sudo service mysql start
 ```
+## 2. mySQL is 10x slower for data parsing
  
