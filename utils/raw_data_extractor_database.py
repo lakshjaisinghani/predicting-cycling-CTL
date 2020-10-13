@@ -46,12 +46,28 @@ def send_query(connection, query):
   '''
   cursor = connection.cursor()
   try:
-      cursor.execute(query)
-      print("Query excecuted successfully")
+        cursor.execute(query)
+        print("Query excecuted successfully")
   except Error as e:
-      print(f"The error '{e}' occurred")
+        print(f"The error '{e}' occurred")
 
+  cursor.close()
 
+def checkTableExists(connection, tablename):
+    cursor = connection.cursor()
+    cursor.execute("""
+        SELECT COUNT(*)
+        FROM information_schema.tables
+        WHERE table_name = '{0}'
+        """.format(tablename.replace('\'', '\'\'')))
+
+    if cursor.fetchone()[0] == 1:
+        cursor.close()
+        return True
+
+    cursor.close()
+    return False
+    
 def parse_record(values):
     ''' This function parses the contents of a message named records
     into a dictionory and returns it.
@@ -88,7 +104,9 @@ if __name__ == "__main__":
 
     data_files = glob.glob("../data/[0-9]/*.fit.gz")
     # For testing purpopses
-    
+    data_files = data_files[0:1]
+    ride_id = 2
+
     print("Cleaning Data has begun !!")
     start_time = time.time()
 
@@ -109,7 +127,7 @@ if __name__ == "__main__":
                 # convert from datetime object to str 
                 date = str(message.get_values()['time_created'])[:10]
 
-                # append date
+                # append date to parent table
                 query = "INSERT INTO Rides (date) VALUES ('" + date + "');"
                 send_query(connection, query)
                 connection.commit()
@@ -129,9 +147,25 @@ if __name__ == "__main__":
             
             if message.name == "record" and is_cycling:
                 data = parse_record(message.get_values())
-                data_lst.append(data)
 
+                # create new ride table if doesnt exist
+                if not checkTableExists(connection, "ride"+str(ride_id)):
+                    query = "CREATE TABLE ride"+str(ride_id)+" (id INT PRIMARY KEY AUTO_INCREMENT, date VARCHAR(10) \
+                            FOREIGN KEY REFERENCES Rides(date), time VARCHAR(10), lat FLOAT(10, 5), \long FLOAT(10, 5), alt \
+                            FLOAT(10, 5), speed FLOAT(3, 3), power INT(4), cadence INT(3))"
+                    send_query(connection, query)
 
+                # add elements
+                try:
+                    query = "INSERT INTO ride"+str(ride_id)+" (date, time, lat, long, alt, speed, power, cadence) \
+                            VALUES ('"+str(data['date'])+"','"+str(data['time'])+"','"+str(data['position_lat'])+"', '"+str(data['position_long'])+"'\
+                            , '"+str(data['altitude'])+"', '"+str(data['speed'])+"', '"+str(data['power'])+"', '"+str(data['cadence'])+"')"
+                    
+                    send_query(connection, query)
+                    connection.commit()
+                except:
+                    pass
+                
     end_time = time.time()
     print("Completed data wrangling. \n")
     print("Time Taken: " + str(end_time-start_time))
