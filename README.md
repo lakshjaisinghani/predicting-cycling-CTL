@@ -27,4 +27,20 @@ As the goal of the project is to learn, each path of the workflow (Data Engineer
 
 ### Software
 - [ ] Deploy (somehow)
+
+# Notes
+
+## 1. If there are auth fails
+
+```shell
+$ sudo mysql -u root -p
+And then updating the password using:
+
+$ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'new-password';
+```
+Once this is done stop and start the mysql server.
+```shell
+$  sudo service mysql stop
+$  sudo service mysql start
+```
  
