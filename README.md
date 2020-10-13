@@ -17,7 +17,7 @@ As the goal of the project is to learn, each path of the workflow (Data Engineer
 - [X] Wrangle Data
    - [X] Create pipeline
    - [X] Dataframe conversion -> Direct conversion (20x faster)
-   - [ ] Convert from CSV storage to Relational Database storage
+   - [X] Convert from CSV storage to Relational Database storage (stuck with csv, mySQL is way too slow)
 - [ ] Clean Data
 - [ ] Exploratory Analysis
 
